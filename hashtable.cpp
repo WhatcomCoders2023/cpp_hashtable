@@ -63,6 +63,27 @@ HashTable *create_table(int size)
     return table;
 }
 
+void free_item(HashTable_Item *item)
+{
+    free(item->key);
+    free(item->value);
+    free(item);
+}
+
+void free_table(HashTable *table)
+{
+    for (int i = 0; i < table->size; i++)
+    {
+        HashTable_Item *item = table->items[i];
+        if (item != NULL)
+        {
+            free_item(item);
+        }
+    }
+    free(table->items);
+    free(table);
+}
+
 int main()
 {
     return 0;

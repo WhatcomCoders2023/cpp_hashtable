@@ -20,7 +20,9 @@ typedef struct HashTable
 } HashTable;
 
 HashTable_Item *create_item(char *key, char *value);
+void free_item(HashTable_Item *item);
 
 HashTable *create_table(int size);
+void free_table(HashTable *table);
 
 #endif // HASHTABLE_H
